@@ -1,4 +1,4 @@
-package com.microservice.student.controller;
+package com.microservice.course.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,28 +11,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.microservice.student.entities.Student;
-import com.microservice.student.service.IStudentService;
+import com.microservice.course.entities.Course;
+import com.microservice.course.service.ICourseService;
 
 @RestController
-@RequestMapping("/api/student")
-public class StudentController {
-    @Autowired
-    private IStudentService iStudentService;
+@RequestMapping("/api/course")
+public class CourseController {
 
-    @GetMapping("all")
-    public ResponseEntity<?> findAllStudent(){
-        return ResponseEntity.ok(iStudentService.findAll());
+    @Autowired
+    private ICourseService iCourseService;
+
+     @GetMapping("all")
+    public ResponseEntity<?> findAllCourse(){
+        return ResponseEntity.ok(iCourseService.findAll());
     }
 
     @GetMapping("search/{id}")
-    public ResponseEntity<?> findByIdStudent(@PathVariable Long id){
-        return ResponseEntity.ok(iStudentService.findById(id));
+    public ResponseEntity<?> findByIdCourse(@PathVariable Long id){
+        return ResponseEntity.ok(iCourseService.findById(id));
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("create")
-    public void saveStudent(@RequestBody Student student){
-        iStudentService.save(student);
+    public void saveCourse(@RequestBody Course course){
+        iCourseService.save(course);
     }
 }
