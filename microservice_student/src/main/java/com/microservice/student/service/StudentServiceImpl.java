@@ -12,7 +12,7 @@ import com.microservice.student.persistence.StudentRepository;
 public class StudentServiceImpl implements IStudentService{
 
     @Autowired
-    StudentRepository studenRepository;
+    private StudentRepository studenRepository;
 
     @Override
     public List<Student> findAll() {
