@@ -1,18 +1,18 @@
 server:
-  port: 9761
+   port: 8761
 
 spring:
-  application:
-   name: msvc-eureka
-  config:
-   import: optional:configserver:http://localhost:8888
+   application:
+      name: msvc-eureka
+   config:
+      import: optional:configserver:http://localhost:8888
 
 eureka:
-  instance:
-   hostname: localhost
-  client:
-    service-url: 
-     defaultZone: http://localhost:${server.port}/eureka/
-     register-with-eureka: false
-     fetch-registry: false
+   instance:
+      hostname: localhost
+   client:
+      service-url: 
+         defaultZone: http://localhost:${server.port}/eureka/
+         register-with-eureka: false
+         fetch-registry: false
    
